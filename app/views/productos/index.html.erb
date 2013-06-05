@@ -1,0 +1,29 @@
+<% @productos.each do |producto| %>
+    <div class="row well">
+        <div class="span4">
+            <%= image_tag producto.foto %>    
+        </div>
+        <div class="span4">
+            <strong>Nombre: </strong><%= producto.name %><br/>
+            <strong>Precio: </strong><%= producto.precio %><br/>
+            <strong>Stock: </strong><%= producto.stock %><br/>
+            <strong>Descripcion: </strong><%= producto.description %><br/>
+        </div>
+        <div class="span 3">
+            <% if current_user.try(:admin?) %>
+            <%= link_to 'Show', producto, class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_producto_path(producto), class: "btn btn-primary" %>
+            <%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-primary" %>
+            <%end%>
+        </div>
+    </div>
+ 
+    
+  
+<% end %>
+</table>
+
+<br />
+<% if current_user.try(:admin?) %>
+<%= link_to 'Agregar Producto', new_producto_path, class: "btn btn-primary" %>
+<% end %>

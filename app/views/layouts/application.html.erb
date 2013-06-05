@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BortekStore - Siempre Primeros</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#"><%= image_tag "logo.png", width: "90px" %></a>
+    <ul class="nav">
+      <li class="active"><a href="#">Inicio</a></li>
+      <li><%= link_to "Productos", productos_path %></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <ul class ="nav pull-right">
+    	<% if user_signed_in? %>
+    	<li><a href="#">Bienvenido <%= current_user.first_name %></a></li>
+    	<% else %>
+    	<li><%= link_to "Iniciar Sesión", new_user_session_path %>
+    	<li><%= link_to "Registro", new_user_registration_path %>
+    	<% end %>
+    </ul>
+  </div>
+
+</div>
+	<div class="container">
+		<!-- ALERTAS -->
+		<% flash.each do |type,message| %>
+			<div class="alert <%= flash_class type %>">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<%= message %>
+			</div>
+		<% end %>
+<%= yield %>
+	</div>
+</body>
+</html>
