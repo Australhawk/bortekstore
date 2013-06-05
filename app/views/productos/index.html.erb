@@ -14,6 +14,7 @@
             <%= link_to 'Show', producto, class: "btn btn-primary" %>
             <%= link_to 'Edit', edit_producto_path(producto), class: "btn btn-primary" %>
             <%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-primary" %>
+            <%= link_to "Agregar al Carro", add_to_cart_path(producto), class: "btn btn-primary" %>
             <%end%>
         </div>
     </div>

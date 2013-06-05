@@ -2,6 +2,9 @@ BortekStore::Application.routes.draw do
   devise_for :users
 
   resources :productos
+  match "add/:id" => "cart#add", :as => "add_to_cart"
+  match "remove/:id" => "cart#remove", :as => "remove_from_cart"
+  match "cart" => "cart#show", :as => "cart"
   root :to => "productos#index"
 
   # The priority is based upon order of creation:

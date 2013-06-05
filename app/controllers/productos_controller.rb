@@ -1,4 +1,5 @@
 class ProductosController < ApplicationController
+  before_filter :initialize_cart
   # GET /productos
   # GET /productos.json
   def index
