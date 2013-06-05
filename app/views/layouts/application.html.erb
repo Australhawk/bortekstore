@@ -17,8 +17,8 @@
     </ul>
     <ul class ="nav pull-right">
     	<% if user_signed_in? %>
-      
-    	<li><a href="#">Bienvenido <%= current_user.first_name %></a></li>
+      <li></li>
+    	<li><a href="#"><%= image_tag current_user.gravatar_url, :width => "25px" %> Bienvenido <%= current_user.first_name %></a></li>
       <li><a href="cart">Tienes <%= @cart.productos.count %> items en tu carrito</a></li>
     	<% else %>
     	<li><%= link_to "Iniciar Sesión", new_user_session_path %>
