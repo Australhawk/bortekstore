@@ -15,7 +15,12 @@ class ProductosController < ApplicationController
     end
   end
   def categoria
-    @productos = Producto.where("category_id =?", params[:category_id])  
+    if params[:page]
+      @productos = Producto.where("category_id =?", params[:category_id]).page params[:page]
+    else
+      @productos = Producto.where("category_id =?", params[:category_id]).page(1)
+    end
+    
     respond_to do |format|
       format.html { render "index" }
       format.json { render json: @productos }
