@@ -5,7 +5,8 @@
         #{producto.name} - #{number_to_currency producto.precio, :precision => 0}
       %img.imgnav= image_tag producto.foto, :alt => producto.name, :border => "0", :height => "98px"
       %p.newdetails
-        = producto.category.name
+        - if producto.category
+          = producto.category.name
       - if current_user.try(:admin?)
         = link_to 'Show', producto, class: "btn btn-primary"
         = link_to 'Edit', edit_producto_path(producto), class: "btn btn-primary"
