@@ -1,11 +1,23 @@
 BortekStore::Application.routes.draw do
+  get "inicio/index"
+
+  resources :categories
+
+
   devise_for :users
 
   resources :productos
+  match "categoria/:category_id" => "productos#categoria", :as => "filter"
   match "add/:id" => "cart#add", :as => "add_to_cart"
   match "remove/:id" => "cart#remove", :as => "remove_from_cart"
   match "cart" => "cart#show", :as => "cart"
-  root :to => "productos#index"
+  root :to => "inicio#index"
+  
+  devise_scope :user do
+    get "login", :to => "devise/sessions#new", :as => "login"
+    get "logout", :to => "devise/sessions#destroy", :as => "logout"
+    get "registrar", :to => "devise/registrations#new", :as => "register"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

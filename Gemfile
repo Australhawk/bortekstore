@@ -5,16 +5,36 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'haml-rails'                              #HAML
+gem 'holder_rails'                              #HOLDER
+# gem 'carrierwave'                             #UPLOAD
+# gem 'shoulda'                               #TEST
+gem 'devise'                                #LOGIN
+gem 'kaminari'                                #PAGINATION
+# gem 'factory_girl_rails'                          #FIXTURES
+gem 'cancan'                                #PERMISOS
+# gem 'nokogiri'                                #PARSER
+gem 'formtastic-bootstrap'                          #FORMULARIOS
+# gem 'omniauth-facebook'                           #FACEBOOK
+# gem 'omniauth-twitter'                            #TWITTER
+# gem 'omniauth-github'                           #GITHUB
+# gem 'omniauth-openid'                           #OPENID
+# gem 'resque'                                #ASYNC
+# gem 'resque_mailer'                             #MAIL-DELAYER
 
-gem 'devise'
 
-group :development, :test do
-	gem 'sqlite3'	
+
+
+group :development do
+  gem 'brakeman', :require => false                     #Seguridad
+  gem 'sqlite3'                               #Database
 end
-group :production do
-	
-	gem 'pg'
+group :production, :test do
+ 
+  gem 'pg'
 end
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

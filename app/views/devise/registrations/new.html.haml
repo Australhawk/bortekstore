@@ -1,0 +1,21 @@
+%table.boxestb{:border => "0"}
+  %tr
+    %td.boxestd
+      
+    %td.boxestd
+      .fproduct
+        
+        
+        = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          = f.inputs do
+            = f.input :first_name, :label => "Nombre"
+            = f.input :last_name, :label => "Apellido"
+            = f.input :profile_name, :label => "Nick"
+            = f.input :email, :label => "Correo"
+            = f.input :password, :label => "Contraseña"
+            = f.input :password_confirm, :label => "Confirmar Contraseña"
+          
+            = f.action :submit, :label => "Registrase"
+        = render "devise/shared/links"
+    
+    %td.boxestd

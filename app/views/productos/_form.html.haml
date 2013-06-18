@@ -1,0 +1,10 @@
+= semantic_form_for(@producto) do |f|
+  = f.inputs do
+    = f.input :category, :label => "Categoría"
+    = f.input :name, :label => "Nombre"
+    = f.input :precio
+    = f.input :stock
+    = f.input :foto, :label => "Imagen"
+    = f.input :description, :input_html => { :rows => "2" }, :label => "Descripción"
+    = f.input :featured
+    = f.action :submit, :label => "Agregar", :button_html => { :disable_with => 'Trabajando...' }

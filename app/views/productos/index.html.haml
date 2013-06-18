@@ -1,0 +1,18 @@
+.container-fluid{:style=> "margin-left: 25px"}
+  - @productos.each do |producto|
+    .fproducto
+      %p.titlenewgift
+        #{producto.name} - #{number_to_currency producto.precio, :precision => 0}
+      %img.imgnav= image_tag producto.foto, :alt => producto.name, :border => "0", :height => "98px"
+      %p.newdetails
+        = producto.category.name
+      - if current_user.try(:admin?)
+        = link_to 'Show', producto, class: "btn btn-primary"
+        = link_to 'Edit', edit_producto_path(producto), class: "btn btn-primary"
+        = link_to 'Destroy', producto, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-primary"
+        /= link_to "Agregar al Carro", add_to_cart_path(producto), class: "btn btn-primary"
+  .clearfix
+  .container-fluid
+  = paginate @productos
+  - if can? :manage, @productos
+    %center= link_to 'Agregar Producto', new_producto_path, class: "btn btn-primary"

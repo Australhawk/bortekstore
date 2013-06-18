@@ -1,12 +1,23 @@
 class ProductosController < ApplicationController
-  before_filter :initialize_cart
+  load_and_authorize_resource
   # GET /productos
   # GET /productos.json
   def index
-    @productos = Producto.all
     
+    if params[:page]
+      @productos = Producto.page params[:page]
+    else
+      @productos = Producto.page(1)
+    end
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @productos }
+    end
+  end
+  def categoria
+    @productos = Producto.where("category_id =?", params[:category_id])  
+    respond_to do |format|
+      format.html { render "index" }
       format.json { render json: @productos }
     end
   end
@@ -25,15 +36,12 @@ class ProductosController < ApplicationController
   # GET /productos/new
   # GET /productos/new.json
   def new
-    if current_user.try(:admin?)
+    
     @producto = Producto.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @producto }
-    end
-    else
-      redirect_to root_path
     end
   end
 

@@ -1,0 +1,46 @@
+%table.boxestb{:border => "0"}
+  %tr
+    %td.boxestd
+      .categories
+        - @categories.each do |category|
+          %a.linkcat{:href => filter_path(category.id)}= category.name
+          %br
+        %p.allproductsp
+          %a.linkprod{:href => "#"} Todos...
+      %br
+      .specialoffer
+        %p.titlespecialo
+          Sin ofertas
+        %a.linknav{:href => "#"}
+          %img.imgnav= holder_tag "160x160"
+    %td.boxestd
+      .fproduct
+        - @featured.each do |producto|
+          %span.titleprod
+            .pull-left{:style => "margin-left:30px"}= producto.name
+            .pull-right{:style => "margin-right:30px"}= number_to_currency producto.precio, :precision => 0
+          %br/
+          %br/
+          %img.imgnav= image_tag producto.foto, :alt => producto.name, :border => "0", :height => "109px"
+          %p.descriptionp
+            #{producto.description}
+          %p.btnp
+            %a.linknav{:href => "#"}
+              %img.imgnav= image_tag "btns/details.png", :alt => "Details", :border => "0", :height => "27px", :width => "84px"
+            
+          
+    %td.boxestd
+      .yourbasket
+        %p.basketext
+          Compras:
+        %p.bstext
+          Tienes #{@cart.cart_items.count} articulos en tu carro.
+      %br/
+      .newgifts
+        - @productos.each do |producto| 
+          %p.titlenewgift
+            #{producto.name} - #{number_to_currency producto.precio, :precision => 0}
+          %img.imgnav= image_tag producto.foto, :alt => producto.name, :border => "0", :height => "98px"
+          %p.newdetails
+            %a.linknewgifts{:href => "#"} details
+          

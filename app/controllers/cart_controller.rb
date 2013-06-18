@@ -1,6 +1,6 @@
 class CartController < ApplicationController
 	before_filter :initialize_cart
-
+  skip_authorization_check
 	def add
 		@producto = Producto.find(params[:id])
 		@cart.add(@producto,@cart)

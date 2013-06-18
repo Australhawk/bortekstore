@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %title BortekStore - Siempre Primeros
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #message.container
+      - flash.each do |type,message|
+        %div{:class => "alert #{flash_class type}"}
+          %a.close{"data-dismiss" => "alert", :href => "#"} ×
+          = message
+            
+    .content
+      
+      %br/
+      %br/
+      %br/
+      
+      .navbar
+        %table.navbartb{:border => "0"}
+          %tr
+            %td.navtd
+              %a.linknav{:href => root_path}
+                %img.imgnav= image_tag "navbar/home.png", :alt => "Home", :border => "0", :height => "27px", :width => "56px"
+            %td.navtd
+              %a.linknav{:href => productos_path}
+                %img.imgnav= image_tag "navbar/allproducts.png", :alt => "All Products", :border => "0", :height => "27px", :width => "106px"
+            %td.navtd
+              %a.linknav{:href => "#"}
+                %img.imgnav= image_tag "navbar/testimonials.png", :alt => "Testimonials", :border => "0", :height => "27px", :width => "108px"
+            %td.navtd
+              %a.linknav{:href => "#"}
+                %img.imgnav= image_tag "navbar/topgifts.png", :alt => "Top Gifts", :border => "0", :height => "27px", :width => "80px"
+            %td.navtd
+              %a.linknav{:href => "#"}
+                %img.imgnav= image_tag "navbar/aboutus.png", :alt => "About Us", :border => "0", :height => "27px", :width => "93px"
+            %td.navtd
+              %a.linknav{:href => "#"}
+                %img.imgnav= image_tag "navbar/faq.png", :alt => "Faq", :border => "0", :height => "27px", :width => "44px"
+            %td.navtd
+              %a.linknav{:href => "#"}
+                %img.imgnav= image_tag "navbar/contactus.png", :alt => "Contact Us", :border => "0", :height => "27px", :width => "98px"
+      / Mensajes
+      
+      = yield
+    .footer
+      Copyright &copy; 2013 BortekStore | Desarrollado por e-Clay
+      
+      
+    / Do not chnage below this
+    %a{:href => "http://www.templatesperfect.com", :title => "Designed by TemplatesPerfect.com"}
+      %img= image_tag "tp.png", :alt => "", :border => "0", :height => "12", :width => "12"

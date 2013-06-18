@@ -99,9 +99,7 @@ sub {
 }
 
 img {
-  width: auto\9;
-  height: auto;
-  max-width: 100%;
+  
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -209,26 +207,13 @@ textarea {
   @page  {
     margin: 0.5cm;
   }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
+  
   h2,
   h3 {
     page-break-after: avoid;
   }
 }
 
-body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333333;
-  background-color: #ffffff;
-}
 
 a {
   color: #0088cc;
@@ -648,9 +633,7 @@ a:focus {
   clear: both;
 }
 
-p {
-  margin: 0 0 10px;
-}
+
 
 .lead {
   margin-bottom: 20px;
@@ -1259,7 +1242,7 @@ textarea::-webkit-input-placeholder {
 
 .radio input[type="radio"],
 .checkbox input[type="checkbox"] {
-  float: left;
+  margin-right: 5px;
   margin-left: -20px;
 }
 
@@ -3875,7 +3858,7 @@ input[type="submit"].btn.btn-mini {
 
 .alert {
   padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
+
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
@@ -4362,12 +4345,7 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
 }
 
-.navbar {
-  *position: relative;
-  *z-index: 2;
-  margin-bottom: 20px;
-  overflow: visible;
-}
+
 
 .navbar-inner {
   min-height: 40px;
