@@ -7,10 +7,10 @@ BortekStore::Application.routes.draw do
   devise_for :users
 
   resources :productos
-  match "categoria/:category_id" => "productos#categoria", :as => "filter"
-  match "add/:id" => "cart#add", :as => "add_to_cart"
-  match "remove/:id" => "cart#remove", :as => "remove_from_cart"
-  match "cart" => "cart#show", :as => "cart"
+  get "categoria/:category_id" => "productos#categoria", :as => "filter"
+  get "add/:id" => "cart#add", :as => "add_to_cart"
+  get "remove/:id" => "cart#remove", :as => "remove_from_cart"
+  get "cart" => "cart#show", :as => "cart"
   root :to => "inicio#index"
   
   devise_scope :user do
